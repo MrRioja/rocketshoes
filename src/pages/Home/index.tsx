@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MdAddShoppingCart } from "react-icons/md";
 
 import { ProductList } from "./styles";
@@ -26,7 +26,7 @@ const Home = (): JSX.Element => {
   const { addProduct, cart } = useCart();
 
   const cartItemsAmount = cart.reduce((sumAmount, product) => {
-    sumAmount[product.id] += product.price;
+    sumAmount[product.id] = product.amount;
 
     return sumAmount;
   }, {} as CartItemsAmount);
@@ -35,12 +35,10 @@ const Home = (): JSX.Element => {
     async function loadProducts() {
       const { data } = await api.get<Product[]>("/products");
 
-      const productsFormatted = data.map((product) => {
-        return {
-          ...product,
-          priceFormatted: formatPrice(product.price),
-        };
-      });
+      const productsFormatted = data.map((product) => ({
+        ...product,
+        priceFormatted: formatPrice(product.price),
+      }));
 
       setProducts(productsFormatted);
     }
