@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { MdShoppingBasket } from "react-icons/md";
 
@@ -8,7 +7,7 @@ import { useCart } from "../../hooks/useCart";
 
 const Header = (): JSX.Element => {
   const { cart } = useCart();
-  const cartSize = Number(new Set(cart).size);
+  const cartSize = cart.length;
 
   return (
     <Container>
