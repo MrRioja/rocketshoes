@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./src/assets/images/logo.svg" alt="Logo" width="300"/>
+  <img src="./readme/vectorpaint.png" alt="Logo" width="300"/>
   <br>
 </p>
 <h3 align="center">
